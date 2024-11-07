@@ -56,6 +56,8 @@ const addSociety = async (req, res) => {
             feedback,
             responsibilities,
             logo,
+            createdBy: req.user.id,
+
         });
         
         await newSociety.save();
@@ -73,8 +75,24 @@ const addSociety = async (req, res) => {
         });
     }
 };
+const fetchAdminSocieties = async (req, res) => {
+    try {
+        
+        const adminSocieties = await Society.find({ createdBy: req.user.id });
+        console.log(adminSocieties)
 
-
+        res.status(200).json({
+            success: true,
+            data: adminSocieties,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            success: false,
+            message: "Error occurred while fetching societies created by admin",
+        });
+    }
+};
 const fetchAllSocieties = async (req, res) => {
     try {
         const societyList = await Society.find({});
@@ -161,4 +179,5 @@ module.exports = {
     addSociety,
     editSociety,
     deleteSociety,
+    fetchAdminSocieties,
 };

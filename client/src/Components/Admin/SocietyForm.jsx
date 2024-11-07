@@ -3,7 +3,7 @@ import { X, PlusCircle, Trash2 } from 'lucide-react';
 import ImageUpload from './ImageUpload';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from "react-redux";
-import { addNewSociety, editSociety, fetchAllSociety } from '../../Features/SocietySlice/SocietySlice';
+import { addNewSociety, editSociety, fetchAdminSocieties, fetchAllSociety } from '../../Features/SocietySlice/SocietySlice';
 import { toast } from 'react-toastify'; // Import toast
 
 const SocietyForm = ({ onClose, isEditMode, currentEditId, setcurrentEditId, setFormVisible }) => {
@@ -82,7 +82,7 @@ const SocietyForm = ({ onClose, isEditMode, currentEditId, setcurrentEditId, set
         formData: SocietyData,
       })).then((data) => {
         if (data?.payload?.success) {
-          dispatch(fetchAllSociety());
+          dispatch(fetchAdminSocieties());
           setFormData(initialFormState);
           setcurrentEditId(null);
           setImageFile(null);
@@ -97,7 +97,7 @@ const SocietyForm = ({ onClose, isEditMode, currentEditId, setcurrentEditId, set
       // Add new society
       dispatch(addNewSociety(SocietyData)).then((data) => {
         if (data?.payload?.success) {
-          dispatch(fetchAllSociety());
+          dispatch(fetchAdminSocieties());
           setFormData(initialFormState);
           setImageFile(null);
           setImage2File(null);

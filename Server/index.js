@@ -6,7 +6,8 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const authRouter = require('./Routes/AuthRoutes/authRoutes');
 const societyRouter = require('./Routes/SocietyForm/societyFormRoutes');
-
+const bulletinRouter = require('./Routes/Bulletin/bulletinRoutes');
+const userSocietyRouter = require('./Routes/userSocietyRoutes/userSocietyRoutes')
 const port = process.env.PORT || 5000; // Change 'port' to 'PORT'
 
 connectToDatabase();
@@ -30,6 +31,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use('/api/auth', authRouter);
 app.use('/api/admin/societies', societyRouter);
+app.use('/api/admin/bulletin', bulletinRouter);
+app.use('/api/user/student/', userSocietyRouter);
+
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

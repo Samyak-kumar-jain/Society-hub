@@ -1,7 +1,7 @@
 import { registerUser } from '../../../Features/AuthSlice/authSlice';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify'; // Import Toastify
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
 
@@ -9,6 +9,7 @@ function RegisterForm() {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [errors, setErrors] = useState({ email: '', password: '' });
   const dispatch = useDispatch();
+  const Navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,6 +64,7 @@ function RegisterForm() {
                     autoClose: 3000,
                 });
                 setFormData({ name: '', email: '', password: '' });
+                <Navigate to="/auth/login"  />
             })
             .catch((error) => {
               if (error.response && error.response.status === 400) {

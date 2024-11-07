@@ -27,10 +27,11 @@ const TemporaryDrawer = () => {
 
   const menuItems = [
     { text: 'Dashboard', path: '/admin/dashboard', icon: <DashboardIcon/> },
-    { text: 'Societies', path: '/admin/socities', icon: <Users /> },
-    { text: 'Student', path: '/admin/student', icon: <GraduationCapIcon/> },
+    { text: 'My society', path: '/admin/socities', icon: <Users /> },
     { text: 'Event', path: '/admin/event', icon: <Calendar /> },
-    { text: 'Member', path: '/admin/members', icon: <Users /> },
+    { text: 'Student', path: '/admin/student', icon: <GraduationCapIcon/> },
+    
+    
     
   ];
 

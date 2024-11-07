@@ -85,8 +85,7 @@ const ImageUpload = ({ isEditMode, imageFile, setImageFile, uploadImgUrl, setImg
                             <span className='text-gray-400 hover:text-teal-600'>Drag & drop or click to upload image</span>
                         </label>
                     ) : (
-                        imagLoadingState?
-                        <Skeleton className="h-[125px] w-[250px] rounded-xl" />:
+                        
                         <div className='flex flex-col items-center'>
                             <img src={uploadImgUrl} alt="Uploaded preview" className='h-52 w-60 rounded-md mb-2' />
                             <button
