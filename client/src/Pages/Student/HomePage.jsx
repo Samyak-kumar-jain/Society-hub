@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Search } from 'lucide-react'; // Import the search icon from lucide-react
 import { useDispatch, useSelector,} from "react-redux";
 import { fetchAllSociety } from '../../Features/SocietySlice/SocietySlice';
-import SocietyCard from './SocietyCard';
+import SocietyCard from '../../Components/student/SocietyCard';
 import cardsData from '../../data/JoinSocietyData';
 
 
@@ -55,10 +55,10 @@ const HomePage = () => {
       {/* Societies Section */}
       <div className="px-4 sm:px-8 md:px-16 lg:px-28 mt-2 md:mt-5 lg:mt-9">
         <div className="">
-          <p className="text-start text-2xl md:text-3xl lg:text-4xl text-white font-semibold w-full flex justify-center">
+          <p className="text-start text-2xl md:text-3xl lg:text-4xl text-blue-500 font-semibold w-full flex justify-center">
             Popular Societies
           </p>
-          <div className="relative mt-10 mb-7 overflow-x-auto">
+          <div className="relative mt-20 mb-7 overflow-x-auto bg-slate-700 rounded-2xl p-3 border border-[#4c82ff] ">
             <div className="flex lg:gap-8 md:gap-8 space-x-11 lg:space-x-0 p-5 overflow-x-auto">
               {filteredSocieties.length > 0 ? (
                 filteredSocieties.map((society) => (
@@ -112,7 +112,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
+      
     </div>
   );
 };

@@ -47,9 +47,21 @@ const getSocietyById = async (req,res) =>{
 const joinSociety = async (req, res) => {
     try {
         const { id } = req.params; 
-        const userId = req.user.id; 
+        const userId = req.user?.id; 
+
+      
+
+        // Check if `userId` is undefined, indicating an issue with authentication
+        if (!userId) {
+            return res.status(401).json({
+                success: false,
+                message: "User not authenticated"
+            });
+        }
+
         const society = await Society.findById(id);
 
+        // Log if the society is not found
         if (!society) {
             return res.status(404).json({
                 success: false,
@@ -57,17 +69,19 @@ const joinSociety = async (req, res) => {
             });
         }
 
-        // Check if the user is already a member
+        // Log if the user is already a member
         if (society.members.includes(userId)) {
-            return res.status(400).json({
-                success: false,
+            return res.status(200).json({
+                success: true,
                 message: "You are already a member of this society"
             });
         }
 
-        // Add user ID to the members array
+        // Add user ID to the members array and save
         society.members.push(userId);
         await society.save();
+
+        // Log successful membership addition
 
         res.status(200).json({
             success: true,
@@ -76,17 +90,18 @@ const joinSociety = async (req, res) => {
         });
 
     } catch (error) {
-        console.log(error);
+        // Log any unexpected errors
         res.status(500).json({
             success: false,
             message: "Error joining society"
         });
     }
 };
+
 const leaveSociety = async (req, res) => {
     try {
         const { id } = req.params; // Society ID from request parameters
-        const userId = req.user._id; // User ID from authentication middleware
+        const userId = req.user?.id; // User ID from authentication middleware
 
         // Find the society by ID
         const society = await Society.findById(id);

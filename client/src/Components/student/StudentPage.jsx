@@ -10,7 +10,7 @@ const StudentPage = () => {
         <StudentHeader/>
       
 
-      <div className='flex flex-col w-full bg-[#1b2431]   '>
+      <div className='flex flex-col w-full bg-[#1b2431] min-h-screen  '>
         <Outlet/> 
       </div>
       <Footer></Footer>

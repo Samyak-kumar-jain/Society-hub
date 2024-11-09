@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 const Auth = () => {
   return (
     <div className='flex min-h-screen w-full'>
-        <div className="hidden lg:flex items:center justify-center bg-indigo-600 w-1/2 px-12">
+        <div className="hidden lg:flex items:center justify-center bg-blue-800 w-1/2 px-12">
         <div className='max-w-md text-center flex text-primary-foreground justify-center items-center'>
           <div className='flex flex-col space-y-5'>
             <h1 className='tracking-tight text-7xl font-extrabold justify-center text-white'>

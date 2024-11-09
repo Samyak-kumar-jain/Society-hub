@@ -85,7 +85,7 @@ function RegisterForm() {
   return (
     <div>
       <form onSubmit={handleSubmit} className="space-y-6  rounded-md p-3 w-96">
-        <h2 className="text-3xl text-center font-bold text-indigo-600">Sign up</h2>
+        <h2 className="text-3xl text-center font-bold text-blue-800">Sign up</h2>
         <div>
           <label className="block text-sm font-medium text-gray-700">Name</label>
           <input
@@ -126,7 +126,7 @@ function RegisterForm() {
         </div>
         <button
           type="submit"
-          className="w-full bg-indigo-500 text-white py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+          className="w-full bg-blue-800 text-white py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
         >
           Register
         </button>

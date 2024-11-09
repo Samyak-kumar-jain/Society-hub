@@ -80,7 +80,7 @@ function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 p-3 w-96">
-      <h2 className="text-2xl font-bold text-indigo-600 ">Login</h2>
+      <h2 className="text-2xl font-bold text-blue-800 ">Login</h2>
       
       <div>
         <label className="block text-sm font-medium text-gray-700">Email</label>
@@ -110,7 +110,7 @@ function LoginForm() {
       </div>
       <button
         type="submit"
-        className="w-full bg-indigo-500 text-white py-2 rounded-md hover:bg-grey focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full bg-blue-800 text-white py-2 rounded-md hover:bg-grey focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         Login
       </button>

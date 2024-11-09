@@ -32,7 +32,7 @@ const App = () => {
   return (
     <>
       <div className='flex flex-col overflow-hidden bg-white'>
-      <ToastContainer
+      <ToastContainer position="top-right"
  
 />
 
